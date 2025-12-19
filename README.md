@@ -44,25 +44,40 @@
             where %s will be the restaurant_id of the restuarant that needs to be deleted.
 
     C. Changes in Menu of a Restaurant<br>
-        1. Add dishes to Menu (addDish)<br>
+    <ol>
+        <li>
+            Add dishes to Menu (addDish) <br>
             ```INSERT INTO DISH_DETAILS (Dish_ID, Dish_Name, Restaurant_ID, Cuisine, Price) VALUES (%s, %s, %d, %s, %d);```<br>
             It takes the details of the dish and adds it to the DISHES entity.<br>
             ```INSERT INTO DISH_INGREDIENTS (Dish_ID, Ingredients) VALUES ;```<br>
             Consecutively, add dish_ingredients for that particular dish.
-        2. Delete dishes from Menu (deleteDish)<br>
+        </li>
+        <li>
+            Delete dishes from Menu (deleteDish)<br>
             ```DELETE FROM DISH_DETAILS WHERE Dish_ID = '%s';```<br>
             Take input of Dish_id you want to delete, and delete it from the menu.
-        3. Update the dishes from menu. (updateDish)<br>
-            *If attribute='Price'<br>
+        </li>
+        <li>
+            Update the dishes from menu. (updateDish)
+            <ul>
+                <li>
+                    If attribute='Price'<br>
                 ```UPDATE DISH_DETAILS SET Price = %d WHERE Dish_ID = %s;```<br>
                     Update the price for the dish whose dish_id you input.
-            -If attribute='Cuisine'<br>
+                </li>
+                <li>
+                    If attribute='Cuisine'<br>
                 ```UPDATE DISH_DETAILS SET Cuisine = %s WHERE Dish_ID = %s;```<br>
                     Update the cuisine for the dish whose dish_id you chose.
-            -If attribute ='Ingredients'<br>
+                </li>
+                <li>
+                    If attribute ='Ingredients'<br>
                 ```DELETE FROM DISH_INGREDIENTS WHERE Dish_ID = %d;```
                     Update the ingredients from the dish whose dish_id you chose.<br>
                 ```INSERT INTO DISH_INGREDIENTS (Dish_ID, Ingredients) VALUES ;```
                     Update Dish_Ingredients accordingly.
-
+                </li>
+            </ul>
+        </li>
+    </ol>
         

@@ -29,15 +29,13 @@
             And then print both the query results using python.
 
     C. Record feedback (recordFeedback)
-
         ```INSERT INTO FEEDBACK (Order_ID, User_ID, Dish_ID, Dish_Name, Bitter, Aftertaste, Texture, Sweet, Sour, Umami, Mouthfeel, Odour, Salty, Presentation, Sound, Spicy) VALUES (%s, %s, %s, %s, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d);```
             Takes the feedback from the user for the chosen dish and insert it into the database.
-
         ```UPDATE SATIETY_INDEX SET Bitter = (SELECT AVG(Bitter) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Aftertaste = (SELECT AVG(Aftertaste) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Sweet = (SELECT AVG(Sweet) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Sour = (SELECT AVG(Sour) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Spicy = (SELECT AVG(Spicy) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Umami = (SELECT AVG(Umami) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Texture = (SELECT AVG(Texture) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Mouthfeel = (SELECT AVG(Mouthfeel) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Odour = (SELECT AVG(Odour) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Salty = (SELECT AVG(Salty) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Presentation = (SELECT AVG(Presentation) FROM FEEDBACK WHERE Dish_ID = {dish_id}), Sound = (SELECT AVG(Sound) FROM FEEDBACK WHERE Dish_ID = {dish_id});```
             Correspondingly, update the satiety_index for that particular dish by taking avg of all the feedbacks of the dish.
 
         
-4. IF userPurpose="Restaurant_Owner"
+5. IF userPurpose="Restaurant_Owner"
 
     A. insert a new restaurant tuple (insertRestaurant)
         ```INSERT INTO RESTAURANTS (Restaurant_ID, Restaurant_Name, Street, Locality, City, Email_Address, Phone_Number) VALUES (%s, %s, %s, %s, %s, %s, %s);```
@@ -48,18 +46,14 @@
             where %s will be the restaurant_id of the restuarant that needs to be deleted.
 
     C. Changes in Menu of a Restaurant
-
         1. Add dishes to Menu (addDish)
             ```INSERT INTO DISH_DETAILS (Dish_ID, Dish_Name, Restaurant_ID, Cuisine, Price) VALUES (%s, %s, %d, %s, %d);```
             It takes the details of the dish and adds it to the DISHES entity.
-
             ```INSERT INTO DISH_INGREDIENTS (Dish_ID, Ingredients) VALUES ;```
             Consecutively, add dish_ingredients for that particular dish.
-
         2. Delete dishes from Menu (deleteDish)
             ```DELETE FROM DISH_DETAILS WHERE Dish_ID = '%s';```
             Take input of Dish_id you want to delete, and delete it from the menu.
-
         3. Update the dishes from menu. (updateDish)
             -If attribute='Price'
                 ```UPDATE DISH_DETAILS SET Price = %d WHERE Dish_ID = %s;```

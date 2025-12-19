@@ -47,14 +47,14 @@
     <ol>
         <li>
             Add dishes to Menu (addDish) <br>
-            ```INSERT INTO DISH_DETAILS (Dish_ID, Dish_Name, Restaurant_ID, Cuisine, Price) VALUES (%s, %s, %d, %s, %d);```<br>
+            <code>INSERT INTO DISH_DETAILS (Dish_ID, Dish_Name, Restaurant_ID, Cuisine, Price) VALUES (%s, %s, %d, %s, %d);</code><br>
             It takes the details of the dish and adds it to the DISHES entity.<br>
-            ```INSERT INTO DISH_INGREDIENTS (Dish_ID, Ingredients) VALUES ;```<br>
+            <code>INSERT INTO DISH_INGREDIENTS (Dish_ID, Ingredients) VALUES ;</code><br>
             Consecutively, add dish_ingredients for that particular dish.
         </li>
         <li>
             Delete dishes from Menu (deleteDish)<br>
-            ```DELETE FROM DISH_DETAILS WHERE Dish_ID = '%s';```<br>
+            <code>DELETE FROM DISH_DETAILS WHERE Dish_ID = '%s';</code><br>
             Take input of Dish_id you want to delete, and delete it from the menu.
         </li>
         <li>
@@ -62,19 +62,19 @@
             <ul>
                 <li>
                     If attribute='Price'<br>
-                ```UPDATE DISH_DETAILS SET Price = %d WHERE Dish_ID = %s;```<br>
+                    <code>UPDATE DISH_DETAILS SET Price = %d WHERE Dish_ID = %s;</code><br>
                     Update the price for the dish whose dish_id you input.
                 </li>
                 <li>
                     If attribute='Cuisine'<br>
-                ```UPDATE DISH_DETAILS SET Cuisine = %s WHERE Dish_ID = %s;```<br>
+                    <code>UPDATE DISH_DETAILS SET Cuisine = %s WHERE Dish_ID = %s;</code><br>
                     Update the cuisine for the dish whose dish_id you chose.
                 </li>
                 <li>
                     If attribute ='Ingredients'<br>
-                ```DELETE FROM DISH_INGREDIENTS WHERE Dish_ID = %d;```
+                    <code>DELETE FROM DISH_INGREDIENTS WHERE Dish_ID = %d;</code>
                     Update the ingredients from the dish whose dish_id you chose.<br>
-                ```INSERT INTO DISH_INGREDIENTS (Dish_ID, Ingredients) VALUES ;```
+                    <code>INSERT INTO DISH_INGREDIENTS (Dish_ID, Ingredients) VALUES ;</code>
                     Update Dish_Ingredients accordingly.
                 </li>
             </ul>
